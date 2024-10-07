@@ -174,19 +174,29 @@ const Home = () => {
 
             <Navbar />
 
-            <div className='w-full grid grid-cols-6 gap-20 p-20'>
-
+            <div className='flex flex-row w-full overflow-x-auto flex-shrink-0 snap-x snap-mandatory'>
               {
                 React.Children.toArray(
-                  all_apps.map(({ icon, name }, index) => (
-                    <button className='flex flex-col items-center gap-2'>
-                      <img src={icon} alt={icon} className='w-14 h-14 object-contain' />
-                      <p className='text-xs text-white'>{name}</p>
-                    </button>
+                  [1, 2].map(item => (
+                    <div className='w-full flex-shrink-0 snap-start'>
+                      <div className='w-full grid grid-cols-6 gap-20 p-20'>
+
+                        {
+                          React.Children.toArray(
+                            all_apps.map(({ icon, name }, index) => (
+                              <button className='flex flex-col items-center gap-2'>
+                                <img src={icon} alt={icon} className='w-14 h-14 object-contain' />
+                                <p className='text-xs text-white'>{name}</p>
+                              </button>
+                            ))
+                          )
+                        }
+
+                      </div>
+                    </div>
                   ))
                 )
               }
-
             </div>
 
           </div>
